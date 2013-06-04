@@ -1,9 +1,13 @@
-var http = require("http");
+var express = require ('express');
 
-function onRequest(request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello World");
-  response.end();
-}
+var app = express();
 
-http.createServer(onRequest).listen(8080);
+app.get ('/url',function(req,res){
+	res.send([{name:'url1'},{name:'url2'}]);
+});
+app.get('/url/:url', function(req,res){
+	res.send({url:req.params.url, name: "The Url", description: "description"});
+});
+
+app.listen(8080);
+console.log('Listening on port 8080...');
