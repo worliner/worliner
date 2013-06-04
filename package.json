@@ -1,14 +1,11 @@
 {
-  "name": "worliner",
-  "description": "website infomation api",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-<<<<<<< HEAD
-      "express": "3.*"
-    , "jade": ">= 0.0.1"
-=======
-    "express": "3.x"
->>>>>>> 92a9db57f6f07aab4a21e1f83a684195278351d8
-  }
+	"name": "worliner",
+	"description": "website infomation api",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"express": "3.*",
+		"jade": ">= 0.0.1",
+		"express": "3.x"
+	}
 }
