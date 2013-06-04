@@ -21,13 +21,5 @@ prototype setValue(data)
 	lounchWorliner();
 }
 
-prototype lounchWorliner()
-{
-	console.log(config);
-	console.log("conf.json was loaded.")
-	console.log("Starting Worliner !")
-	//各モジュールの起動をここから行う。
-}
-
 loadConfig();
 
