@@ -35,13 +35,14 @@ app.get('/users', user.list);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
-
-var pathurl = url.parse(app.request.url).pathname;
-scrape.getWebData(pathurl, function(data){
-	console.log("URL: " + data.url);
-	console.log("TITLE: " + data.title);
-	console.log("Description: " + data.description);
-	console.log("Charset: " + data.charset);
-    console.log("GoogleSafeBrowse: " + data.safety);
-    console.log("faviconURI: " + data.favicon_uri.length);
+app.get('/:id', function(request, response){
+  var pathurl = url.parse(request.params.id).pathname;
+  scrape.getWebData(pathurl, function(data){
+  console.log("URL: " + data.url);
+  console.log("TITLE: " + data.title);
+  console.log("Description: " + data.description);
+  console.log("Charset: " + data.charset);
+  console.log("GoogleSafeBrowse: " + data.safety);
+  console.log("faviconURI: " + data.favicon_uri.length);
+  });
 });
