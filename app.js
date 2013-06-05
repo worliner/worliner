@@ -36,7 +36,7 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-var pathurl = url.parse(request.url).pathname;
+var pathurl = url.parse(req.url).pathname;
 scrape.getWebData(pathurl, function(data){
 	console.log("URL: " + data.url);
 	console.log("TITLE: " + data.title);
