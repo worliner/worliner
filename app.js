@@ -7,7 +7,9 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , scrape = require('./scrape')
+  , url = require('url');
 
 var app = express();
 
@@ -32,4 +34,14 @@ app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+
+var pathurl = url.parse(request.url).pathname;
+scrape.getWebData(pathurl, function(data){
+	console.log("URL: " + data.url);
+	console.log("TITLE: " + data.title);
+	console.log("Description: " + data.description);
+	console.log("Charset: " + data.charset);
+    console.log("GoogleSafeBrowse: " + data.safety);
+    console.log("faviconURI: " + data.favicon_uri.length);
 });
