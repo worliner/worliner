@@ -8,7 +8,7 @@ exports.loadBase64Image = function (url, callback) {
                 callback(base64prefix + image);
             }
         } else {
-            throw new Error('Can not download image');
+            //throw new Error('Can not download image');
             callback(null);
         }
     });

@@ -101,7 +101,7 @@ exports.getWebData = function (url, opt_callback){
   getWebPageTitle(url, function(web) {
     var fav = require('./favicon.js');
     fav.loadBase64Image(web.favicon_url, function (uri) {
-    web.favicon_uri = uri;
+    if(uri) web.favicon_uri = uri;
     if(opt_callback) opt_callback(web);
   });
   });
