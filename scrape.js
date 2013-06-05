@@ -34,6 +34,8 @@ var getWebPageTitle = function(url, callback) {
     });
 
     response.on('end',function() {
+      if(binaryText)
+      {
       var textBuffer = new Buffer(binaryText, 'binary');
       var charsetMatch = new CharsetMatch(textBuffer);
       var text = bufferToString(textBuffer, charsetMatch.getName());
@@ -62,6 +64,9 @@ var getWebPageTitle = function(url, callback) {
         web.safety = false;
         callback(web);
       });
+    }
+    else
+      callback(web);
     });
   });
   request.setTimeout(2000, function() {
