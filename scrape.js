@@ -51,8 +51,6 @@ var getWebPageTitle = function(url, callback) {
       if(text.match(reDesc) && text.match(reDesc).length > 0)
         web.description = text.match(reDesc)[1];
       web.body = $('')
-      //else console.log("couldn't find description from %s", url);
-
 
       var api = new googleSafe.Api(API_KEY);
       api.lookup(web.url)
@@ -64,9 +62,6 @@ var getWebPageTitle = function(url, callback) {
         web.safety = false;
         callback(web);
       });
-      //callback(web);
-
-
     });
   });
   request.setTimeout(2000, function() {
@@ -85,7 +80,7 @@ var bufferToString = function(buffer, charset) {
     return charsetConverter.convert(buffer).toString();
   }
 };
-
+/*
 var url = process.argv[2];
 if(!url) console.log("invaled url")
 getWebPageTitle(url, function(web) {
@@ -101,4 +96,14 @@ getWebPageTitle(url, function(web) {
     console.log( "<img src=\"%s\"/>", uri);
   });
 });
+*/
+exports.getWebData = function (url, opt_callback){
+  getWebPageTitle(url, function(web) {
+    var fav = require('./favicon.js');
+    fav.loadBase64Image(web.favicon_url, function (uri) {
+    web.favicon_uri = uri;
+    if(opt_callback) opt_callback(web);
+  });
+  });
+}
 
