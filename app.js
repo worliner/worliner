@@ -8,7 +8,6 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , scrape = require('./scrape')
   , url = require('url');
 
 var app = express();
@@ -20,6 +19,7 @@ app.set('view engine', 'jade');
 app.get('/:id', function(request, response){
   var pathurl = url.parse(request.params.id).pathname;
   console.log(pathurl);
+  var scrape = require('./scrape');
   scrape.getWebData("http://"+pathurl, function(data){
   console.log("URL: " + data.url);
   console.log("TITLE: " + data.title);
