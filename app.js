@@ -20,7 +20,7 @@ app.set('view engine', 'jade');
 app.get('/:id', function(request, response){
   var pathurl = url.parse(request.params.id).pathname;
   console.log(pathurl);
-  scrape.getWebData(pathurl, function(data){
+  scrape.getWebData("http://"+pathurl, function(data){
   console.log("URL: " + data.url);
   console.log("TITLE: " + data.title);
   console.log("Description: " + data.description);
