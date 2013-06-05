@@ -26,7 +26,7 @@ app.get('/:id', function(request, response){
   console.log("Description: " + data.description);
   console.log("Charset: " + data.charset);
   console.log("GoogleSafeBrowse: " + data.safety);
-  console.log("faviconURI: " + data.favicon_uri.length);
+  console.log("faviconURI: " + data.favicon_uri);
   });
 });
 
