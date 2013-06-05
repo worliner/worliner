@@ -26,12 +26,8 @@ app.get('/:id', function(request, response){
   console.log("Description: " + data.description);
   console.log("Charset: " + data.charset);
   console.log("GoogleSafeBrowse: " + data.safety);
-<<<<<<< HEAD
   console.log("faviconURI: " + data.favicon_uri);
-=======
-  console.log("faviconURI: " + data.favicon_uri.length);
   response.send(data);
->>>>>>> fix
   });
 });
 
