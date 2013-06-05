@@ -6,6 +6,12 @@
 	"dependencies": {
 		"express": "3.*",
 		"jade": ">= 0.0.1",
-		"express": "3.x"
+		"express": "3.x",
+		"iconv": "2.0.6",
+		"cheerio": "0.0.3",
+		"node-icu-charset-detector": "0.0.6",
+		"safe-browse": "1.0.1",
+		"crypto": "0.0.3"
+		"request": "2.21.0"
 	}
 }
