@@ -36,4 +36,12 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-console.log(app);
+var pathurl = url.parse(app.request).pathname;
+scrape.getWebData(pathurl, function(data){
+	console.log("URL: " + data.url);
+	console.log("TITLE: " + data.title);
+	console.log("Description: " + data.description);
+	console.log("Charset: " + data.charset);
+    console.log("GoogleSafeBrowse: " + data.safety);
+    console.log("faviconURI: " + data.favicon_uri.length);
+});
