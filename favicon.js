@@ -9,6 +9,7 @@ exports.loadBase64Image = function (url, callback) {
             }
         } else {
             throw new Error('Can not download image');
+            callback(null);
         }
     });
 };
