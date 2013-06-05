@@ -5,7 +5,6 @@ var https   = require('https');
 var Iconv   = require("iconv").Iconv;
 var cheerio = require('cheerio');
 var fs = require('fs');
-var faviconLoader = require('./favicon.js');
 var googleSafe = require('safe-browse');
 var charsetDetector = require("node-icu-charset-detector");
 
@@ -96,7 +95,7 @@ getWebPageTitle(url, function(web) {
   console.log("説明文:" + web.description);
   console.log("faviconURL:" + web.favicon_url);
   console.log("GoogleSafeBrowse:" + web.safety);
-  var fav = require('./faviconLoader.js');
+  var fav = require('./favicon.js');
   fav.loadBase64Image(web.favicon_url, function (uri) {
     web.favicon_uri = uri;
     console.log( "<img src=\"%s\"/>", uri);
