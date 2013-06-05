@@ -8,6 +8,7 @@
 		"jade": ">= 0.0.1",
 		"express": "3.x",
 		"iconv-jp": "1.1.3",
+		"iconv": "2.0.6",
 		"cheerio": "0.0.3",
 		"node-icu-charset-detector": "0.0.6",
 		"safe-browse": "1.0.1",
